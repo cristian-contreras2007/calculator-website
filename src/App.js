@@ -14,10 +14,14 @@ const App = () => {
     setText((text) => [...text, val + ""]);
   };
 
-  const calculateResult = () => {
+ const calculateResult = () => {
+  try {
     const input = text.join("");
     setResult(math.evaluate(input));
-  };
+  } catch (error) {
+    setResult("Error");
+  }
+};
 
   const resetInput = () => {
     setText("");
